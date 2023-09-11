@@ -66,8 +66,7 @@ exports.auth = (req, res, next) => {
         });
       }
     } else {
-      //access token 이미 존재 --> access token 탈취 당함
-      User.findById(accessToken._id, (err, data) => {
+      User.findById(refreshToken._id, (err, data) => {
         if (err) {
           if (err.message !== "not_found") {
             //에러
@@ -84,10 +83,9 @@ exports.auth = (req, res, next) => {
           }
         } else {
           //유저 존재
-          return res.status(403).json({
-            isAuth: false,
-            message: "해당 아이디가 해킹당했습니다.",
-          });
+          const user = data;
+          req.user = user;
+          next();
         }
       });
     }
