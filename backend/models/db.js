@@ -1,7 +1,8 @@
 const mysql = require("mysql2");
 
 const connection = mysql.createConnection({
-  host: "svc.sel5.cloudtype.app:32595",
+  host: "svc.sel5.cloudtype.app",
+  port: "32595",
   user: "jadest03",
   password: "Wjsalsrb0725!", //비번
   database: "Todo", //db명
