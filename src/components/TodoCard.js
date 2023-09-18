@@ -1,5 +1,5 @@
 import * as React from 'react';
-import EditModal from './editModal';
+
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -7,8 +7,6 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
 export default function TodoCard(props) {
-	const openEditModal = () => {};
-
 	return (
 		<Card>
 			<CardContent>
@@ -31,7 +29,7 @@ export default function TodoCard(props) {
 					variant='outlined'
 					size='small'
 					onClick={() => {
-						openEditModal();
+						props.handleOpen();
 					}}
 				>
 					수정
