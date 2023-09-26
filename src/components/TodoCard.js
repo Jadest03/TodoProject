@@ -1,10 +1,11 @@
 import * as React from 'react';
-
+import TodoEditModal from './TodoEditModal';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { TextField } from '@mui/material';
 
 export default function TodoCard(props) {
 	return (
@@ -25,15 +26,7 @@ export default function TodoCard(props) {
 				</Typography>
 			</CardContent>
 			<CardActions>
-				<Button
-					variant='outlined'
-					size='small'
-					onClick={() => {
-						props.handleOpen();
-					}}
-				>
-					수정
-				</Button>
+				<TodoEditModal props={props} />
 				<Button variant='contained' size='small'>
 					완료
 				</Button>
